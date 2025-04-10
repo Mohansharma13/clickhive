@@ -1,0 +1,88 @@
+.fancy-carousel {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 60px 30px;
+    background: rgb(230, 186, 25);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+  }
+  
+  .quote-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .quote-img img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  .quote-content {
+    max-width: 700px;
+    animation: fadeInUp 0.7s ease-in-out;
+  }
+  
+  .quote-text {
+    font-size: 1.5rem;
+    color: #1e293b;
+    font-style: italic;
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  
+  .quote-author {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #475569;
+  }
+  
+  .quote-dots {
+    margin-top: 30px;
+  }
+  
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 6px;
+    background-color: #929598;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #6b6c99;
+    transform: scale(1.2);
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(25px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .quote-text {
+      font-size: 1.2rem;
+    }
+    .quote-author {
+      font-size: 0.9rem;
+    }
+  }
+  

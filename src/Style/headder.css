@@ -1,0 +1,101 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Grid Layout */
+  .header-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #1e293b;
+    color: white;
+    position: relative;
+  }
+  
+  /* Logo */
+  .clickhive-icon{
+    width: 80px;
+    height: auto;
+    display: block
+  }
+  .logo-link {
+    text-decoration: none;
+    color: #facc15;
+  }
+  .logo h1 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .ads{
+        margin-left: 30px;
+  }
+  /* Hamburger Icon */
+  .hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  /* Navigation Styles */
+  .Routes {
+    display: flex;
+  }
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+  }
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: #334155;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header-grid {
+      grid-template-columns: 1fr auto;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .Routes {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 40px;
+      background-color: #1e293b;
+      padding: 10px 20px;
+      border-radius: 10px;
+      z-index: 100;
+    }
+  
+    .Routes.open {
+      display: block;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .nav-link {
+      display: block;
+      width: 100%;
+    }
+  }
+  
