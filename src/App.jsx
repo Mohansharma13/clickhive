@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import OurServices from './pages/OurServices';
 import OurWork from './pages/OurWork';
 import ErrorPage from './Components/UI/ErrorPage';
+import OurservicesCardPage from './Components/Layout/OurserviceCardPage';
 
 const router=createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router=createBrowserRouter([
       {
         path:"/OurServices",
         element:<OurServices/>
+      },
+      {
+        path:"/OurServices/:id",
+        element:<OurservicesCardPage/>
       },
       {
         path:"/OurWork",

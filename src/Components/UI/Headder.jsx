@@ -14,23 +14,33 @@ function Headder() {
         setMenuOpen(false);
       }
     }
-
-    // Attach listener
     document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-    // Cleanup
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+  // Hide header on scroll down, show on scroll up
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const header = document.querySelector(".header-grid");
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        header.style.transform = "translateY(-100%)"; // Hide
+      } else {
+        header.style.transform = "translateY(0)"; // Show
+      }
+      lastScrollY = window.scrollY;
     };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-      <header className="header-grid" ref={menuRef}>
+    <header className="header-grid" ref={menuRef}>
       <div className="logo">
-        <NavLink to="/" className="logo-link">
-        <img src="src/assets/icon-clickhive.png" className="clickhive-icon"/>
-          {/* <h1>Click Hive</h1>
-          <h1 className="ads">Ads</h1> */}
+        <NavLink to="/" className="logo-link" onClick={() => setMenuOpen(false)}>
+          <img src="src/assets/clickhive.png" className="clickhive-icon" />
         </NavLink>
       </div>
 
@@ -42,11 +52,11 @@ function Headder() {
       {/* Navigation */}
       <nav className={`Routes ${menuOpen ? "open" : ""}`}>
         <ul className="nav-links">
-          <li><NavLink to="/" className="nav-link">Home</NavLink></li>
-          <li><NavLink to="/OurServices" className="nav-link">Our Services</NavLink></li>
-          <li><NavLink to="/OurWork" className="nav-link">Our Work</NavLink></li>
-          <li><NavLink to="/contact" className="nav-link">Contact</NavLink></li>
-          <li><NavLink to="/aboutus" className="nav-link">About Us</NavLink></li>
+          <li><NavLink to="/" end className="nav-link" onClick={() => setMenuOpen(false)}>Home</NavLink></li>
+          <li><NavLink to="/OurServices" className="nav-link" onClick={() => setMenuOpen(false)}>Our Services</NavLink></li>
+          {/* <li><NavLink to="/OurWork" className="nav-link" onClick={() => setMenuOpen(false)}>Our Work</NavLink></li> */}
+          <li><NavLink to="/contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</NavLink></li>
+          {/* <li><NavLink to="/aboutus" className="nav-link" onClick={() => setMenuOpen(false)}>About Us</NavLink></li> */}
         </ul>
       </nav>
     </header>

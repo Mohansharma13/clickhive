@@ -4,17 +4,21 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
-  /* Grid Layout */
   .header-grid {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    padding: 20px 40px;
-    background-color: #1e293b;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #9ab2d8;
     color: white;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-image: url('../assets/navbar-bg- image.png');
+    transition: transform 0.5s ease-in-out;
   }
+  
   
   /* Logo */
   .clickhive-icon{
@@ -38,7 +42,7 @@
     display: none;
     font-size: 30px;
     cursor: pointer;
-    color: white;
+    color: black
   }
   
   /* Navigation Styles */
@@ -51,7 +55,7 @@
     gap: 25px;
   }
   .nav-link {
-    color: white;
+    color: black;
     text-decoration: none;
     font-weight: 500;
     padding: 8px 12px;
@@ -61,6 +65,7 @@
   .nav-link:hover,
   .nav-link.active {
     background-color: #334155;
+    color: white;
   }
   
   /* Responsive */
@@ -77,8 +82,9 @@
       display: none;
       position: absolute;
       top: 70px;
-      right: 40px;
-      background-color: #1e293b;
+      /* right: 40px; */
+      left: 40px;
+      background-color: #c9cfd8;
       padding: 10px 20px;
       border-radius: 10px;
       z-index: 100;
@@ -96,6 +102,26 @@
     .nav-link {
       display: block;
       width: 100%;
+    }
+
+    .header-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    
+    .logo {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .hamburger {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
   

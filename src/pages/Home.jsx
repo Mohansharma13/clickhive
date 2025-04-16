@@ -3,13 +3,18 @@ import { NavLink } from "react-router-dom";
 import "../Style/Home.css";
 
 // Assets
-import heroVideo from "../assets/bg-video-final.mp4"; 
+// import heroVideo from "../assets/bg-video-final.mp4"; 
+import heroVideo from "../assets/bg-final.mp4"
 import heroVideoMobile from "../assets/mobile-view-final.mp4";
 import Image1 from "../assets/intergation.jpg";
 import Image2 from "../assets/workinghard.jpg";
 
 // Components
 import QuoteCarousel from "../Components/UI/quotes";
+
+const clintslogo=["src/assets/clintslogo/Caramelly Logo.jpg",
+                  "src/assets/clintslogo/hitachi.webp",
+                "You Can Be Next.."]
 
 function Home() {
   // Track whether the user is on a mobile device
@@ -177,9 +182,9 @@ function Home() {
 
         {/* Placeholder Logos */}
         <div className="clients-logos">
-          {[1, 2, 3, 4, 5, 6].map((item) => (
+          {clintslogo.map((item) => (
             <div className="client-logo placeholder" key={item}>
-              <span>Your Logo</span>
+              <div className="logoimage"><img src={item} alt={item}/></div>
             </div>
           ))}
         </div>

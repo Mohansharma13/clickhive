@@ -1,44 +1,10 @@
 import "../Style/OurServices.css"
-
 import React from "react";
 import { NavLink } from "react-router-dom";
-
-import { FaChartLine, FaGlobe, FaLaptopCode, FaBullhorn, FaSearch, FaPalette } from "react-icons/fa";
+import { services } from "../Components/Api/OurserviceApi";
 
 function OurServices() {
-  const services = [
-    {
-      icon: <FaChartLine />,
-      title: "Performance Marketing",
-      description: "Drive measurable growth with data-driven strategies and ROI-focused campaigns.",
-    },
-    {
-      icon: <FaSearch />,
-      title: "SEO Optimization",
-      description: "Boost your visibility on search engines and improve organic traffic.",
-    },
-    {
-      icon: <FaGlobe />,
-      title: "Social Media Marketing",
-      description: "Build brand presence across all major platforms and engage your audience.",
-    },
-    {
-      icon: <FaLaptopCode />,
-      title: "Web Design & Development",
-      description: "Craft responsive, fast, and visually stunning websites tailored for conversion.",
-    },
-    {
-      icon: <FaBullhorn />,
-      title: "Brand Strategy",
-      description: "Create a unique brand voice and strategy that stands out in the digital crowd.",
-    },
-    {
-      icon: <FaPalette />,
-      title: "Creative Content",
-      description: "We design compelling visuals and write engaging content to inspire action.",
-    },
-  ];
-
+  console.log("Rendering service:", services);
   return (
     <div className="our-services-page">
       <header className="services-hero">
@@ -48,14 +14,17 @@ function OurServices() {
 
       <section className="services-grid">
         {services.map((service, index) => (
+          
           <div className="service-card" key={index}>
             <div className="icon">{service.icon}</div>
             <h2>{service.title}</h2>
             <p>{service.description}</p>
+            <NavLink to={`/OurServices/${index}`}>
+              <button className="cardButton">Read More..</button>
+            </NavLink>
           </div>
         ))}
       </section>
-      
 
       <footer className="services-footer">
         <h3>Want to work with us?</h3>
